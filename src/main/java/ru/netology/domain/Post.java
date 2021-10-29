@@ -2,19 +2,24 @@ package ru.netology.domain;
 import java.util.Date;
 
 public class Post {
-    private int idPost;                 //идентификатор поста
-    private int idAvtorPost;            //идентификатор автора
+    private int idPost;                 //идентификатор поста (записи)
+    private int idAvtor;                //идентификатор владельца стены, на которой размещена запись
+    private int idAvtorPost;            //идентификатор автора (от чьего имени опубликована запись)
     private String nameAvtorPost;       //имя автора
     private String dateTimePost;        //дата и время поста
     private String textPost;            //текст поста
-    private int countRepost;            //количество репостов
     private int countPreview;           //количество просмотров
-    private int countComment;           //количество комментариев
-    private String imageUrl;            //сслыка на изображение или видео
-    private String failUrl;             //ссылка на прикреплённый файл
+    private String imageUrl;            //сслыка на изображение или видео/медиавложения
+    private String failUrl;             //ссылка на прикреплённый файл/документ
     private boolean recordPinned;       //закреплена запись или нет
     private CommentsInfo commentsInfo;  //класс с комментариями
     private LikeInfo likeInfo;          //класс с лайками
+    private RepostInfo RepostInfo;      //класс с репостами
+    private GeoInfo GeoInfo;            //класс местоположение
+
+    private boolean curAvtorCanPinPost; //текущий автор может закрепить запись
+    private boolean curAvtorCanDeletePost; //текущий автор может удалять запись
+    private boolean curAvtorCanEditPost;    //текущий автор может редактировать запись
 
     public int getIdPost() {
         return idPost;
@@ -22,6 +27,14 @@ public class Post {
 
     public void setIdPost(int idPost) {
         this.idPost = idPost;
+    }
+
+    public int getIdAvtor() {
+        return idAvtor;
+    }
+
+    public void setIdAvtor(int idAvtor) {
+        this.idAvtor = idAvtor;
     }
 
     public int getIdAvtorPost() {
@@ -56,28 +69,12 @@ public class Post {
         this.textPost = textPost;
     }
 
-    public int getCountRepost() {
-        return countRepost;
-    }
-
-    public void setCountRepost(int countRepost) {
-        this.countRepost = countRepost;
-    }
-
     public int getCountPreview() {
         return countPreview;
     }
 
     public void setCountPreview(int countPreview) {
         this.countPreview = countPreview;
-    }
-
-    public int getCountComment() {
-        return countComment;
-    }
-
-    public void setCountComment(int countComment) {
-        this.countComment = countComment;
     }
 
     public String getImageUrl() {
@@ -104,4 +101,27 @@ public class Post {
         this.recordPinned = recordPinned;
     }
 
+    public boolean isCurAvtorCanPinPost() {
+        return curAvtorCanPinPost;
+    }
+
+    public void setCurAvtorCanPinPost(boolean curAvtorCanPinPost) {
+        this.curAvtorCanPinPost = curAvtorCanPinPost;
+    }
+
+    public boolean isCurAvtorCanDeletePost() {
+        return curAvtorCanDeletePost;
+    }
+
+    public void setCurAvtorCanDeletePost(boolean curAvtorCanDeletePost) {
+        this.curAvtorCanDeletePost = curAvtorCanDeletePost;
+    }
+
+    public boolean isCurAvtorCanEditPost() {
+        return curAvtorCanEditPost;
+    }
+
+    public void setCurAvtorCanEditPost(boolean curAvtorCanEditPost) {
+        this.curAvtorCanEditPost = curAvtorCanEditPost;
+    }
 }
