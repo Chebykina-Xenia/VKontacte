@@ -2,7 +2,7 @@ package ru.netology.domain;
 
 public class RepostInfo {
     private int countRepost;            //количество репостов
-    private int idAvtorRepost  ;        //идентификатор автора, кто репостнул
+    private int idAvtorRepost;        //идентификатор автора, кто репостнул
     private boolean repostCurrentIdAvtor; //есть ли репост от текущего пользователя
 
     public int getCountRepost() {
